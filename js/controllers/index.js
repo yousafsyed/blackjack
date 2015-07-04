@@ -1,0 +1,3 @@
+define([
+    './BlackJackController'
+], function () {});

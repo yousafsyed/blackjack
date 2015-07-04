@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Black Jack with angular js</title>
+		<script src="lib/requirejs/require.js" data-main="js/require.conf.js"></script>
+	</head>
+	<body ng-controller="BlackJackController">
+			<div id="dealer">
+			<h2>Dealer:</h2>
+					<b>Cards</b>
+						<span data-ng-repeat="dealerHandCard in BlackJack.dealerHand track by $index">
+							{{BlackJack.dealerHandSuit[$index]}} {{dealerHandCard}},
+						</span>
+						<br>
+						<b>Dealer Score</b>
+					<span ng-model="BlackJack.dealerHandValueHard">{{BlackJack.dealerHandValueHard}}</span>
+					<br>
+
+			</div>
+		<hr>
+			<div id="Player">
+			<h2>Player:</h2>
+				<div class="playerHand">
+				<b>Cards</b>
+					<span data-ng-repeat="playerHandCard in BlackJack.playerHand track by $index">
+						{{BlackJack.playerHandSuit[$index]}} {{playerHandCard}},
+					</span>
+				<br>
+				<b>Player Score</b>
+					<span ng-model="BlackJack.playerHandValueHard">{{BlackJack.playerHandValueHard}}</span>
+				</div>
+
+			</div>
+		
+		
+		<input type="submit" ng-disabled="disabled" ng-click="BlackJack.playeStart()" value="Hit">
+		<input type="submit" ng-disabled="disabled" ng-click="BlackJack.dealer()" value="Stand">
+		<input type="submit" ng-click="resetGame()" value="Reset Game">
+		<hr>
+		<div ng-model="message">{{message}}</div>
+	</body>
+</html>
